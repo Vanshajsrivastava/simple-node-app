@@ -1,7 +1,11 @@
-FROM node:18
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 5000
-CMD ["node", "index.js"]
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Node.js backend is running!");
+});
+
+app.listen(5000, () => {
+  console.log("Server started on port 5000");
+});
+
